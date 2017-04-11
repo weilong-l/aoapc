@@ -7,16 +7,16 @@ LDIR=../lib
 
 LIBS=-lm
 
-_DEPS = hello.h
+_DEPS = headers.h
 # $(patsubst pattern,replacement,text)
 # Finds whitespace-separated words in text that match pattern and replaces them with replacement. 
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = hello.o arithmetics.o
+_OBJ = hello.o arithmetics.o digit-reverse.o swap.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 # the special macros $@ and $^, which are the left and right sides of the :
-hellomake: $(OBJ)
+hello: $(OBJ)
 	gcc -o $@ $^ $(CFLAGS) $(LIBS)
 
 # The -c flag says to generate the object file, 
